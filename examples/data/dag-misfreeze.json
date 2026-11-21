@@ -1,0 +1,11 @@
+{
+  "dag_version": "1.0",
+  "append_only": true,
+  "note": "失败对照：把 auditor 误声明为健康节点，但它实际消费了 researcher 的错误输出（e005），应被判误冻。用于演示 RESULT: FAIL。",
+  "events": [
+    {"event_id": "e001", "ts": "2026-11-20T09:00:01Z", "producer": "researcher", "consumer": "drafter", "artifact": "research_v1.json", "action": "read", "alert_ref": null},
+    {"event_id": "e002", "ts": "2026-11-20T09:01:10Z", "producer": "drafter", "consumer": "replier", "artifact": "draft_v1.md", "action": "read", "alert_ref": null},
+    {"event_id": "e003", "ts": "2026-11-20T09:02:05Z", "producer": "replier", "consumer": "publisher", "artifact": "reply_v1.md", "action": "write", "alert_ref": null},
+    {"event_id": "e005", "ts": "2026-11-20T09:03:00Z", "producer": "researcher", "consumer": "auditor", "artifact": "research_v1.json", "action": "read", "alert_ref": "ALT-2026-1120"}
+  ]
+}
